@@ -1,0 +1,53 @@
+\tikzset{
+  my node style/.style={
+    font=\small,
+    top color=gray!60,
+    bottom color=white!25,
+    %fill=green!30,
+    rectangle,
+    rounded corners,
+    minimum size=6mm,
+    %draw=black,
+    very thick,
+    drop shadow,
+    align=center,
+  }
+}
+\forestset{
+  my tree style/.style={
+    for tree={
+      parent anchor=south,
+      child anchor=north,
+      l sep+=5pt,
+      my node style,
+      edge={draw=black, thick},
+      edge path={
+        \noexpand\path [draw, \forestoption{edge}] (!u.parent anchor) -- +(0,-7.5pt) -| (.child anchor)\forestoption{edge label};
+      },
+      if n children=3{
+        for children={
+          if n=2{calign with current}{}
+        }
+      }{},
+      delay={if content={}{shape=coordinate}{}}
+    }
+  }
+}
+\centering
+\begin{forest}
+  my tree style
+  [Security
+        [Confidentiality \\ (Privacy)
+            %[Content\\Creation]
+            %[Content\\Review]
+            ]
+      [Integrity \\
+        [Source\\Authentication]
+        [Data\\Verification]
+      ]
+    [Availability \\
+      %[Distributed\\Computing]
+      %[Human\\Computing]
+    ]
+  ]
+\end{forest}

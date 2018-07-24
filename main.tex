@@ -1,0 +1,58 @@
+\documentclass[12pt,letterpaper,oneside]{book}
+
+\usepackage{7_styles/afitThesis}
+\usepackage{7_styles/sf298}
+
+
+\graphicspath{/5_figures/}
+\input{4_support/figures.tex}
+
+\newglossary*{symbol}{Symbols}
+\makeglossaries
+\loadglsentries{4_support/definitions}
+\loadglsentries[acronym]{4_support/acronyms}
+\loadglsentries{4_support/symbols}
+
+\input{1_front/titlePage}
+
+\begin{document}
+
+\frontmatter
+	\flyleaf                        
+	\disclaimerpage                 
+	\titlepageAFIT                      
+	\committeepage  
+	\input{1_front/abstract}
+    \input{1_front/dedication}
+    \input{1_front/preface}
+    \input{1_front/acknowledgements}
+    \tableofcontents
+    \listoffigures
+    \listoftables
+    %\glsaddall %REMOVE THIS LATER
+    \listofdefinitions
+    \listofabbreviations
+    \listofsymbols
+    
+\mainmatter
+	\chapter{Introduction}
+    	\input{2_main/chapter1/chap1.tex}
+    \chapter{Literature Review}
+    	\input{2_main/chapter2/chap2.tex}
+    \chapter{Methodology}
+    	\input{2_main/chapter3/chap3.tex}
+    \chapter{Results \& Analysis}
+    	\input{2_main/chapter4/chap4.tex}
+    \chapter{Conclusion}
+    	\input{2_main/chapter5/chap5.tex}
+        
+
+\backmatter
+    \baselineskip=1em
+	\bibliographystyle{IEEEtran}
+	\bibliography{4_support/mendeley} 
+    \baselineskip=\normalbaselineskip
+
+	\input{3_back/SF298}
+	
+\end{document}
